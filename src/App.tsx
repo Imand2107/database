@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Playground from './components/Playground';
+import TransformationVisualizer from './components/TransformationVisualizer';
 import StrategyGuide from './components/StrategyGuide';
 import ComparisonTable from './components/ComparisonTable';
 import Quiz from './components/Quiz';
 import * as Icons from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'playground' | 'diagnosis' | 'comparison' | 'quiz'>('playground');
+  const [activeTab, setActiveTab] = useState<'playground' | 'visualizer' | 'diagnosis' | 'comparison' | 'quiz'>('visualizer');
 
   // Mini summary cards
   const summaryPillars = [
@@ -118,6 +119,19 @@ export default function App() {
               <Icons.Shuffle className="w-3.5 h-3.5 mr-2" />
               Interactive Sandbox
             </button>
+
+            <button
+              id="tab-visualizer"
+              onClick={() => setActiveTab('visualizer')}
+              className={`py-2.5 px-5 text-xs font-bold uppercase tracking-widest transition-all duration-150 flex items-center border ${
+                activeTab === 'visualizer'
+                  ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
+                  : 'bg-[#F7F7F3] border-[#E5E5E1] text-[#5F5F5B] hover:text-[#1A1A1A] hover:bg-[#F1F1ED]'
+              }`}
+            >
+              <Icons.Workflow className="w-3.5 h-3.5 mr-2" />
+              Transformation & Infographics
+            </button>
             
             <button
               id="tab-diagnosis"
@@ -162,6 +176,7 @@ export default function App() {
           {/* Active Tab Component Render */}
           <div className="pt-2">
             {activeTab === 'playground' && <Playground />}
+            {activeTab === 'visualizer' && <TransformationVisualizer />}
             {activeTab === 'diagnosis' && <StrategyGuide />}
             {activeTab === 'comparison' && <ComparisonTable />}
             {activeTab === 'quiz' && <Quiz />}
