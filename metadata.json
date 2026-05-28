@@ -1,0 +1,6 @@
+{
+  "name": "Database Normalization Visualizer",
+  "description": "An interactive database normalization visualizer and textbook explaining 1NF, 2NF, 3NF, including a normalization playground, quiz mode, comparisons, and transformation strategies.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
